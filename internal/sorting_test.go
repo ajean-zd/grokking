@@ -16,6 +16,26 @@ func TestSelectSort(t *testing.T) {
 
 }
 
+func TestSelectSortBlank(t *testing.T) {
+
+	unsorted := SortNumbers{}
+	result := selectSort(unsorted)
+	expected := []int{}
+
+	assert.Equal(t, expected, result, "nothing returns")
+
+}
+
+func TestGetSmallest(t *testing.T) {
+
+	unsorted := SortNumbers{7, 4, 65, 52, 1, 888}
+	result := getSmallest(unsorted)
+	expected := 1
+
+	assert.Equal(t, expected, result, "ints have been sorted")
+
+}
+
 // func TestReverseOrder(t *testing.T) {
 
 // 	sorted := SortNumbers{1, 4, 7, 52, 65, 888}
