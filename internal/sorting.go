@@ -49,7 +49,7 @@ func getSmallest(unsortedNumbers []int) int {
 }
 
 func reverseSortOrder(sorted []int) []int {
-	// takes a sorted array and reverses the sort order
+	// returns an int slice in descending order
 	if len(sorted) == 0 {
 		return []int{}
 	}
@@ -58,8 +58,9 @@ func reverseSortOrder(sorted []int) []int {
 	return sorted
 }
 
-func stringSort(unsortedNumbers []string) []string {
-	sorted := SortStrings{}
+func stringSort(mystrings []string) []string {
+	// returns a slice of strings in order
+	sort.Strings(mystrings)
 
-	return sorted
+	return mystrings
 }

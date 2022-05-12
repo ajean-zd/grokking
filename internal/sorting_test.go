@@ -43,9 +43,18 @@ func TestReverseSortOrder(t *testing.T) {
 
 }
 
-// func TestStringSort(t *testing.T) {
+func TestStringSortSingleString(t *testing.T) {
 
-// 	unsorted := SortStrings{"g", "b", "z", "r"}
-// 	expected := []string{"b", "g", "r", "z"}
-// 	assert.Equal(t, unsorted, expected, "strings sorted")
-// }
+	unsorted := SortStrings{"g", "b", "z", "r"}
+	expected := []string{"b", "g", "r", "z"}
+	result := stringSort(unsorted)
+	assert.Equal(t, expected, result, "strings sorted")
+}
+
+func TestStringSortLongStrings(t *testing.T) {
+
+	unsorted := SortStrings{"baltar", "rigel", "angus", "enoch", "dougie"}
+	expected := []string{"angus", "baltar", "dougie", "enoch", "rigel"}
+	result := stringSort(unsorted)
+	assert.Equal(t, expected, result, "strings sorted")
+}
