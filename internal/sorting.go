@@ -1,5 +1,9 @@
 package grokking
 
+import (
+	"sort"
+)
+
 //chapter two
 
 //sort from smallest to largest
@@ -8,8 +12,7 @@ type SortNumbers []int
 type SortStrings []string
 
 func selectSort(unsortedNumbers []int) []int {
-	// takes an unsorted array of ints and sorts them smallest to larges
-
+	// takes an unsorted array of ints and sorts them smallest to largest
 	if len(unsortedNumbers) == 0 {
 		return []int{}
 	}
@@ -29,9 +32,9 @@ func selectSort(unsortedNumbers []int) []int {
 			over = append(over, unsortedNumbers[i])
 		}
 	}
+
 	result := append(selectSort(under), working_sort)
 	return append(result, selectSort(over)...)
-
 }
 
 func getSmallest(unsortedNumbers []int) int {
@@ -45,11 +48,14 @@ func getSmallest(unsortedNumbers []int) int {
 	return smallest
 }
 
-func reverseOrder(unsortedNumbers []int) []int {
-	sorted := SortNumbers{}
-	//takes a sorted array and reverses the sorting order
-	return sorted
+func reverseSortOrder(sorted []int) []int {
+	// takes a sorted array and reverses the sort order
+	if len(sorted) == 0 {
+		return []int{}
+	}
 
+	sort.Sort(sort.Reverse(sort.IntSlice(sorted)))
+	return sorted
 }
 
 func stringSort(unsortedNumbers []string) []string {
